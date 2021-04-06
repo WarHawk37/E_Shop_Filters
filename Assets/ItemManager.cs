@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
-    public Item[] items;
+    public Item[] items =new Item[50];
     public Transform clothsDisplay;
     public Transform watchDisplay;
     public Transform jewelleryDisplay;
@@ -16,21 +16,29 @@ public class ItemManager : MonoBehaviour
     public Transform clothsToggles;
     public Transform jewelleryToggles;
     public Transform watchesToggles;
+    public Item itemPrefab;
 
-  
-   
 
-  
+
+
     // Start is called before the first frame update
 
     private void Awake()
     {
-      
+
+        for (int i = 0; i < items.Length; i++)
+        {
+            Item t = Instantiate(itemPrefab, this.gameObject.transform);
+            items[i] = t ;
+
+        }
     }
+
     void Start()
     {
 
-        items = Resources.FindObjectsOfTypeAll<Item>();
+
+        //items = Resources.FindObjectsOfTypeAll<Item>();
         foreach (var item in items)
         {
             CategorizeItem(item);
@@ -39,11 +47,6 @@ public class ItemManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     
     public void clothswomenFilter( bool  isOn )
@@ -52,19 +55,26 @@ public class ItemManager : MonoBehaviour
         {
 
 
-            foreach (Transform child in clothsDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in cloths)
             {
                 if (item.user.ToString() == "women")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, clothsDisplay) as Item;
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -80,19 +90,26 @@ public class ItemManager : MonoBehaviour
         {
 
 
-            foreach (Transform child in clothsDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in cloths)
             {
                 if (item.user.ToString() == "kids")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, clothsDisplay) as Item;
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -106,21 +123,26 @@ public class ItemManager : MonoBehaviour
         if (isOn)
         {
 
-
-            foreach (Transform child in clothsDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in cloths)
             {
                 if (item.user.ToString() == "men")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, clothsDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -135,20 +157,26 @@ public class ItemManager : MonoBehaviour
         {
 
 
-            foreach (Transform child in jewelleryDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in jewellery)
             {
                 if (item.user.ToString() == "men")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, jewelleryDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -161,21 +189,26 @@ public class ItemManager : MonoBehaviour
         if (isOn)
         {
 
-
-            foreach (Transform child in jewelleryDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in jewellery)
             {
                 if (item.user.ToString() == "kids")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, jewelleryDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -189,20 +222,26 @@ public class ItemManager : MonoBehaviour
         {
 
 
-            foreach (Transform child in jewelleryDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in jewellery)
             {
                 if (item.user.ToString() == "women")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, jewelleryDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -230,23 +269,25 @@ public class ItemManager : MonoBehaviour
                 }
 
 
-
-                foreach (Transform child in jewelleryDisplay)
-                {
-                    GameObject.Destroy(child.gameObject);
-                }
-
                 foreach (var item in jewellery)
                 {
-
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, jewelleryDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
-
+                   
+                        if (!item.gameObject.activeSelf)
+                        {
+                            item.gameObject.SetActive(true);
+                            item.transform.SetAsFirstSibling();
+                        }
+                        else
+                        {
+                            item.transform.SetAsFirstSibling();
+                        }
 
 
                 }
-                break;
+                break;                   
+
+               
+           
 
            
             case "watches":
@@ -260,24 +301,23 @@ public class ItemManager : MonoBehaviour
                 }
 
 
-
-                foreach (Transform child in watchDisplay)
-                {
-                    GameObject.Destroy(child.gameObject);
-                }
                 foreach (var item in watches)
                 {
 
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, watchDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
-
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
 
                 }
                 break;
             case "cloths":
-
                 foreach (Transform child in clothsToggles)
                 {
 
@@ -288,16 +328,19 @@ public class ItemManager : MonoBehaviour
                 }
 
 
-                foreach (Transform child in clothsDisplay)
-                {
-                    GameObject.Destroy(child.gameObject);
-                }
                 foreach (var item in cloths)
                 {
 
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, clothsDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
+
 
                 }
                 break;
@@ -313,20 +356,31 @@ public class ItemManager : MonoBehaviour
         {
 
 
-            foreach (Transform child in watchDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
+            //foreach (Transform child in watchDisplay)
+            //{
+            //    GameObject.Destroy(child.gameObject);
+            //}
 
 
             foreach (var item in watches)
             {
                 if (item.user.ToString() == "men")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, watchDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -340,20 +394,28 @@ public class ItemManager : MonoBehaviour
         {
 
 
-            foreach (Transform child in watchDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
 
 
             foreach (var item in watches)
             {
                 if (item.user.ToString() == "kids")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, watchDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
+                    
 
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
@@ -366,25 +428,29 @@ public class ItemManager : MonoBehaviour
         if (isOn)
         {
 
-
-            foreach (Transform child in watchDisplay)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-
-
             foreach (var item in watches)
             {
                 if (item.user.ToString() == "women")
                 {
-                    Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, watchDisplay) as Item;
-                    i.gameObject.SetActive(true);
-                    i.transform.SetAsFirstSibling();
+                    if (!item.gameObject.activeSelf)
+                    {
+                        item.gameObject.SetActive(true);
+                        item.transform.SetAsFirstSibling();
+                    }
+                    else
+                    {
+                        item.transform.SetAsFirstSibling();
+                    }
 
+
+                }
+                else
+                {
+
+                    item.gameObject.SetActive(false);
                 }
 
             }
-
         }
 
     }
@@ -394,17 +460,31 @@ public class ItemManager : MonoBehaviour
 
         switch (item.category.ToString())
         {
+           
             case "cloths":
                 cloths.Add(item);
-                Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, clothsDisplay) as Item;
+                //Item i = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, clothsDisplay) as Item;
+             
+                item.transform.SetParent(clothsDisplay);
+              
+                item.transform.localScale = new Vector3(1, 1, 1);
                 break;
             case "watches":
                 watches.Add(item);
-                Item j = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, watchDisplay) as Item;
+                //Item j = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, watchDisplay) as Item;
+                item.transform.SetParent(watchDisplay);
+               
+                item.transform.localScale = new Vector3(1, 1, 1);
+              
                 break;
             case "jewellery":
                 jewellery.Add(item);
-                Item k = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, jewelleryDisplay) as Item;
+                //Item k = Instantiate(item, new Vector3(0, 0, 0), Quaternion.identity, jewelleryDisplay) as Item;
+                item.transform.SetParent(jewelleryDisplay);
+               
+                item.transform.localScale = new Vector3(1, 1, 1);
+
+
                 break;
             default:
                 break;

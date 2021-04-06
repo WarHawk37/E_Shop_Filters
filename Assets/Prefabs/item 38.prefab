@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7354783119114049838}
-  - component: {fileID: 7354783119114049837}
+  - component: {fileID: 4313039162427989080}
   m_Layer: 5
   m_Name: item 38
   m_TagString: Untagged
@@ -119,7 +119,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7354783119114049837
+--- !u!114 &4313039162427989080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,9 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867ed1c7114e1e34ca41ca13a3220335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 8000
-  category: 1
-  user: 1
+  price: 0
+  category: 0
+  user: 0
 --- !u!1 &7354783119664351917
 GameObject:
   m_ObjectHideFlags: 0
